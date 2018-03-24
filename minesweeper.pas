@@ -4,6 +4,23 @@ var i,j,n,miny,mc,ic,jc:integer;
     a,v:array[1..10,1..10]of integer;
     win,loss:boolean;
     cf:string[1];
+    
+procedure frontend();
+begin
+   for i:=1 to n do
+      begin
+        writeln();
+        for j:=1 to n do
+          if v[i,j]=0 then
+            write('# ')
+          else
+            if v[i,j]=1 then
+              write(a[i,j],' ')
+            else
+              write('f ');
+      end;
+end;
+
 begin
 
   clrscr;
@@ -18,15 +35,7 @@ begin
       v[i,j]:=0;
     end;
   writeln('miny: ',miny);
-  for i:=1 to n do
-      begin
-        writeln();
-        for j:=1 to n do
-          if v[i,j]=0 then
-            write('# ')
-          else
-            write(a[i,j],' ');
-      end;
+  frontend();
   writeln();
   writeln('click: ');
   write('x: ');
@@ -81,18 +90,7 @@ begin
       end;
 }
 
-    for i:=1 to n do
-      begin
-        writeln();
-        for j:=1 to n do
-          if v[i,j]=0 then
-            write('# ')
-          else
-            if v[i,j]=1 then
-              write(a[i,j],' ')
-            else
-              write('f ');
-      end;
+    frontend();
 
       writeln();
       write('click or flag(c/f): ');
