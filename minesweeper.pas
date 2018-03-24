@@ -24,7 +24,7 @@ end;
 begin
 
   clrscr;
-  writeln('zadej velikost: ');
+  writeln('Enter size: ');
   readln(n);
   miny:=round((n*n)/5);
   mc:=miny;
@@ -34,7 +34,7 @@ begin
       a[i,j]:=0;
       v[i,j]:=0;
     end;
-  writeln('miny: ',miny);
+  writeln('Remaining mines: ',miny);
   frontend();
   writeln();
   writeln('click: ');
@@ -78,7 +78,7 @@ begin
   repeat
   begin
     clrscr;
-    writeln('Zbývá min: ',mc);
+    writeln('Remaining mines: ',mc);
 
 //cheatsheet-delete{}
 {
