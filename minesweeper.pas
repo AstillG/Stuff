@@ -60,13 +60,6 @@ begin
                   a[i,j]:=a[i,j]+1;
       end;
 
-  for i:=1 to n do
-  begin
-    writeln();
-    for j:=1 to n do
-      write(a[i,j],' ');
-  end;
-
   win:=false;
   loss:=false;
   mc:=miny;
