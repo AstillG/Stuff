@@ -11,9 +11,11 @@ begin
   miny:=round((n*n)/5);
   mc:=miny;
   writeln('miny: ',miny);
+
   for i:=1 to n do
   for j:=1 to n do
     a[i,j]:=0;
+    
   repeat
   begin
     i:=random(n)+1;
@@ -25,17 +27,18 @@ begin
       end;
   end;
   until mc=0;
+
   for i:=1 to n do
   begin
     writeln();
     for j:=1 to n do
       write(a[i,j],' ');
   end;
-  
+
 //zjištění min v okolí
-  
+
   writeln();
- 
+
   for i:=1 to n do
     for j:=1 to n do
       begin
@@ -46,12 +49,12 @@ begin
                 if a[ic-1,jc-1]=9 then
                   a[i,j]:=a[i,j]+1;
       end;
-      
+
   for i:=1 to n do
   begin
     writeln();
     for j:=1 to n do
       write(a[i,j],' ');
   end;
-  
+
 end.
