@@ -6,7 +6,6 @@ var i,j,n,miny,mc,ic,jc:integer;
     cf:string[1];
 begin
 
-//generování min(9)
   clrscr;
   writeln('zadej velikost: ');
   readln(n);
