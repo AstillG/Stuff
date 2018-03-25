@@ -72,7 +72,7 @@ begin
   readln(ic);
   writeln('y: ');
   readln(jc);
-  flush(ic,jc); //zavolá se souřadnicemi na které se zadají
+  flush(jc,ic); //zavolá se souřadnicemi na které se zadají
 
    for i:=1 to n do
       begin
