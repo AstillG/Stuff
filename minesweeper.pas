@@ -121,7 +121,8 @@ begin
           if cf='c' then
             v[jc,ic]:=1 //if clicked set visibility to show
           else
-            v[jc,ic]:=2; //flag
+            if cf='f' then
+              v[jc,ic]:=2; //flag
      mc:=miny;
      for i:=1 to n do    //checks if all mines are flag-ed
        for j:=1 to n do
