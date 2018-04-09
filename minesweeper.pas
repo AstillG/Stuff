@@ -21,19 +21,36 @@ for i:=1 to n do
             write('# ')   //hidden
           else
             if v[i,j]=1 then
-              write(a[i,j],' ') //shoen
+              write(a[i,j],' ') //shown
             else
               write('f ');      //flag
       end;
 end;
 
+procedure sweep(i,j:integer;);
+var ic,jc: integer;
+begin
+if a[i,j]=0 then
+  for ic:=i to i+2 do
+    for jc:=j to j+2 do
+      if (ic-1<>0) and (jc-1<>0) and
+         (ic-1<=n) and (jc-1<=n) then
+        if (a[ic-1,jc-1]=0) and (v[ic-1,jc-1]=0) then
+          begin
+            v[ic-1,jc-1]:=1;
+            sweep((ic-1),(jc-1));
+          end
+        else
+          v[ic-1,jc-1]:=1;
+end;
+
 begin
 
-//mines generation(9)
+//mines generation
   clrscr;
   writeln('Enter size: ');
   readln(n);
-  miny:=round((n*n)/5); //number of mines
+  miny:=round((n*n)/6); //number of mines
   mc:=miny;
   for i:=1 to n do
   for j:=1 to n do
@@ -64,6 +81,7 @@ begin
   end;
   until mc=0;
 
+
 //counting mines around cells
 
   writeln();
@@ -89,15 +107,21 @@ begin
   begin
     clrscr;
     writeln('Remaining mines: ',mc);
+
 //cheatsheet
 {
-  for i:=1 to n do
+    for i:=1 to n do
       begin
         writeln();
         for j:=1 to n do
+          if a[i,j]=9 then
+            write('* ')
+        else
             write(a[i,j],' ');
       end;
+   writeln();
 }
+
 
     frontend();
 
@@ -119,10 +143,12 @@ begin
         loss:=true
       else
           if cf='c' then
-            v[jc,ic]:=1 //if clicked set visibility to show
+            begin
+              v[jc,ic]:=1; //if clicked set visibility to show
+              sweep(jc,ic);
+            end
           else
-            if cf='f' then
-              v[jc,ic]:=2; //flag
+            v[jc,ic]:=2; //flag
      mc:=miny;
      for i:=1 to n do    //checks if all mines are flag-ed
        for j:=1 to n do
